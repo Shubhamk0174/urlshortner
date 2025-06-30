@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased `} >
        
-       <Script src="https://cdn.lordicon.com/lordicon.js" strategy="afterInteractive" />
+  
         <div className="font-mono">
         <Navbar/>
         {children}
