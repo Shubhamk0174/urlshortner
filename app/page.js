@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center items-center">
-          <script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <Script src="https://cdn.lordicon.com/lordicon.js" strategy="afterInteractive" />
           <lord-icon
             src="https://cdn.lordicon.com/gsjfryhc.json"
             trigger="loop"
