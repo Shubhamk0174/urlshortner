@@ -8,6 +8,7 @@ const Shorten = () => {
     const [shorturl, setShorturl] = useState("");
     const [generate, setGenerate] = useState(false);
     const [alert, setAlert] = useState({ show: false, message: '', type: '' });
+    const [loading, setLoading] = useState(false);
 
     const handleGenerate = () => {
         if (!url || !shorturl) {
@@ -15,6 +16,7 @@ const Shorten = () => {
             setTimeout(() => setAlert({ show: false, message: '', type: '' }), 3000);
             return;
         }
+        setLoading(true);
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -44,11 +46,13 @@ const Shorten = () => {
                     setAlert({ show: true, message: result.message, type: 'error' });
                 }
                 setTimeout(() => setAlert({ show: false, message: '', type: '' }), 3000);
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
                 setAlert({ show: true, message: 'An error occurred. Please try again.', type: 'error' });
                 setTimeout(() => setAlert({ show: false, message: '', type: '' }), 3000);
+                setLoading(false);
             });
     };
 
@@ -86,9 +90,10 @@ const Shorten = () => {
 
                     <button
                         onClick={handleGenerate}
-                        className="bg-[#12977f] h-9 rounded-lg text-lg cursor-pointer"
+                        disabled={loading}
+                        className="bg-[#12977f] h-9 rounded-lg text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        Generate
+                        {loading ? "Generating..." : "Generate"}
                     </button>
                 </div>
             </div>

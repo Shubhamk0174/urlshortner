@@ -25,6 +25,7 @@ const Shorten = ()=>{
         message: '',
         type: ''
     });
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const handleGenerate = ()=>{
         if (!url || !shorturl) {
             setAlert({
@@ -39,6 +40,7 @@ const Shorten = ()=>{
                 }), 3000);
             return;
         }
+        setLoading(true);
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         const raw = JSON.stringify({
@@ -74,6 +76,7 @@ const Shorten = ()=>{
                     message: '',
                     type: ''
                 }), 3000);
+            setLoading(false);
         }).catch((error)=>{
             console.error(error);
             setAlert({
@@ -86,6 +89,7 @@ const Shorten = ()=>{
                     message: '',
                     type: ''
                 }), 3000);
+            setLoading(false);
         });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -99,7 +103,7 @@ const Shorten = ()=>{
                         children: "Generate your short URLs"
                     }, void 0, false, {
                         fileName: "[project]/app/shorten/page.js",
-                        lineNumber: 58,
+                        lineNumber: 62,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -109,12 +113,12 @@ const Shorten = ()=>{
                             children: alert.message
                         }, void 0, false, {
                             fileName: "[project]/app/shorten/page.js",
-                            lineNumber: 62,
+                            lineNumber: 66,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/shorten/page.js",
-                        lineNumber: 61,
+                        lineNumber: 65,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -130,7 +134,7 @@ const Shorten = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/shorten/page.js",
-                                lineNumber: 67,
+                                lineNumber: 71,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -143,34 +147,35 @@ const Shorten = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/shorten/page.js",
-                                lineNumber: 77,
+                                lineNumber: 81,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: handleGenerate,
-                                className: "bg-[#12977f] h-9 rounded-lg text-lg cursor-pointer",
-                                children: "Generate"
+                                disabled: loading,
+                                className: "bg-[#12977f] h-9 rounded-lg text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
+                                children: loading ? "Generating..." : "Generate"
                             }, void 0, false, {
                                 fileName: "[project]/app/shorten/page.js",
-                                lineNumber: 87,
+                                lineNumber: 91,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/shorten/page.js",
-                        lineNumber: 66,
+                        lineNumber: 70,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/shorten/page.js",
-                lineNumber: 57,
+                lineNumber: 61,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "text-center",
                 children: generate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: generate,
                         target: "_blank",
                         children: [
@@ -185,29 +190,29 @@ const Shorten = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/shorten/page.js",
-                                lineNumber: 100,
+                                lineNumber: 105,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/shorten/page.js",
-                        lineNumber: 98,
+                        lineNumber: 103,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/shorten/page.js",
-                    lineNumber: 97,
+                    lineNumber: 102,
                     columnNumber: 21
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/shorten/page.js",
-                lineNumber: 95,
+                lineNumber: 100,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/shorten/page.js",
-        lineNumber: 56,
+        lineNumber: 60,
         columnNumber: 9
     }, this);
 };
