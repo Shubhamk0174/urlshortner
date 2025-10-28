@@ -95,10 +95,10 @@ const Shorten = () => {
             <div className="text-center">
                 {generate && (
                     <code>
-                        <Link href={generate} target="_blank">
+                        <a href={generate} target="_blank">
                             Your Short URL :{" "}
                             <span className="text-blue-500"> {generate} </span>
-                        </Link>
+                        </a>
                     </code>
                 )}
             </div>
