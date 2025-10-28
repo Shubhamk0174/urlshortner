@@ -1,1 +1,5 @@
-{}
+{
+  "/api/generate/route": "app/api/generate/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/shorten/page": "app/shorten/page.js"
+}
